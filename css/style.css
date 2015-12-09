@@ -1,0 +1,259 @@
+/*!
+ * Start Bootstrap - Scrolling Nav HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Calibri";
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+.navbar{
+    height: 60px;
+}
+
+/* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
+The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
+of those sections to manage the look and feel of the site. */
+
+.main-section {
+    /*height: 100%;*/
+    min-height: 700px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+    background: lightgray;
+}
+
+/*fonts*/
+.whitefont{
+    color:white;
+}
+
+.grayfont{
+    color:gray;
+}
+
+.dispinline{
+    display: inline;
+}
+
+/*****************************/
+
+.maindiv{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 5px 15px  #888888;
+    min-height: 500px;
+}
+
+footer{
+    min-height:100px;
+    background: black;
+}
+
+
+.card{
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.card:hover{
+    box-shadow: 2px 1px 10px  #888888;
+}
+
+.card-body{
+    background: whitesmoke;
+    min-height: 180px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    /*border-radius: 5px;*/
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    position:relative;
+}
+
+.card-footer{
+    /*height: 10%;*/
+    width:100%;
+    min-height: 20px;
+    background-color: black;
+    position:relative;
+    bottom:0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+.card-top{
+    position: relative;
+    float: left;
+    padding:5px;
+    display: inline-block;
+}
+
+.blackline{
+    height:2px;
+    width: 100%;
+    background-color: darkgray;
+    position: relative;
+}
+
+.floatleftrelative{
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+.verticalline{
+    height:100px;
+    width: 2px;
+    background-color: lightgray;;
+}
+
+.card-content{
+    float: left;
+    padding-left: 10px;
+    padding-right: 20px;
+    min-height: 100px;
+    width: 100%;
+}
+
+.modal-header{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: dodgerblue;
+}
+
+.input-container .btn-success{
+    background-color: dodgerblue;
+    margin-right: 10px;
+}
+/********************Floating Placeholder******************/
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+.input-container {
+  margin: 0;
+  margin-bottom: 7px;
+  padding-top: 12px;
+  position: relative;
+}
+.input-container label {
+  position: absolute;
+  top: 14px;
+  left: 25%;
+  color: #aaa;
+  transition: all 0.2s;
+  cursor: text;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.input-container input,select {
+  height: 24px;
+  padding: 2px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  outline: none;
+  width: 50%;
+}
+    .input-container input:focus, .input-container input.filled, .input-container select:focus, .input-container select.filled  {
+  border-bottom: 1px solid dodgerblue;
+}
+.input-container input:focus + label, .input-container input.filled + label{
+  font-size: 11px;
+  line-height: 12px;
+  top: 0px;
+  color: dodgerblue;
+}
+
+.input-container select:focus + label,  .input-container select.filled + label  {
+    font-size: 11px;
+    line-height: 12px;
+    top: 0px;
+    color: dodgerblue;
+}
+
+.form-container{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+/****************************************************/
+.rulediv select + label{
+    font-size: 11px;
+    line-height: 12px;
+    top: 0px;
+    color: dodgerblue;
+}
+
+.rulediv select{
+    border-bottom: 1px solid dodgerblue;
+}
+
+
+.recipientcheckboxes{
+    margin-top: 25px;
+}
+
+.moveright{
+    margin-right:5px;
+}
+
+.headingband{
+    height: 20px;
+    width:100%;
+    background-color: dodgerblue;
+}
+
+.modal-content .modal-body table {
+    width: 80%;
+}
+
+th{
+    color: dimgray;
+    font-weight: bold;
+}
+
+.rulestable input, .rulestable select {
+    height: 24px;
+    padding: 2px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+    width: 80%;
+}

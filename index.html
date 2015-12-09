@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Rules</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand page-scroll" href="#Rules">Rules</a>-->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">+ Add Rule</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Large modal -->
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-center whitefont">
+                    <h2>Add Rule</h2>
+                    <!--<hr>-->
+                </div>
+                <div class="modal-body text-center">
+                    <div class="text-center ">
+                        <form class="form-horizontal  " role="form" id="popupform">
+                            <div class="form-container">
+                                <!--RuleNames************-->
+                                <div class="form-group input-container">
+                                    <input id="Input-RuleName" name="Input-RuleName" type="text">
+                                    <label for="Input-RuleName">Rule Name</label>
+                                </div>
+                                <!--description**************-->
+                                <div class="form-group input-container">
+                                    <input id="Input-RuleDescription" name="Input-RuleDescription" type="text">
+                                    <label for="Input-RuleDescription">Rule Description</label>
+                                </div>
+                                <!--fields*************-->
+                                <div class="form-group input-container">
+                                    <select name="Fields" placeholder="Fields">
+                                        <option value=""></option>
+                                        <option value="Deadline">Deadline</option>
+                                        <option value="Comments">Comments</option>
+                                        <option value="Uploads">Uploads</option>
+                                        <option value="Completion">Completion</option>
+                                    </select>
+                                    <label for="Fields">Fields</label>
+                                </div>
+                                <br>
+                                <div class="container-fluid floatleftrelative headingband">
+                                    <span class="whitefont">Rule Criteria</span>
+                                </div>
+
+                                <!--/***********Run this if criteria met*********************/-->
+                                <br><br>
+                                <div class="form-group input-container rulediv">
+                                    <select name="criteria" placeholder=" ">
+                                        <option value="Deadline" selecte="true">criteria are met </option>
+                                        <option value="Comments">criteria are not met</option>
+                                    </select>
+                                    <label for="criteria">Run this rule if the following</label>
+                                </div>
+                                <br>
+
+
+                                        <table id="tt" class="container-fluid rulestable">
+                                        <tr>
+                                            <th class="text-center">Field</th>
+                                            <th class="text-center">Operator</th>
+                                            <th class="text-center">Value</th>
+                                        </tr>
+                                        <!--table body-->
+                                        <tr>
+                                            <td>
+                                                <div class="form-group input-container">
+                                                    <select name="Fields">
+                                                        <option value="date">Deadline</option>
+                                                        <option value="Task creation">Task creation</option>
+                                                        <option value="Comment">Comment</option>
+                                                        <option value="Uploads">Uploads</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group input-container">
+                                                    <select name="operator">
+                                                        <option value="gt"> > </option>
+                                                        <option value="lt"> < </option>
+                                                        <option value="gte"> >= </option>
+                                                        <option value="lte"> <= </option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="input-container">
+                                                    <input id="rulevalue" name="rulevalue" type="text">
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+
+
+                                <!--Recipient check boxes-->
+                                <div class="form-group recipientcheckboxes">
+                                    <div class="col-sm-offset-2 col-sm-8">
+                                        <label class="grayfont dispinline">Recipients: </label>
+                                        <div class="checkbox" style="display: inline; padding-left: 1em;">
+                                            <label class="moveright"><input type="checkbox"> Requester</label>
+                                            <label class="moveright"><input type="checkbox"> Followers</label>
+                                            <label class="moveright"><input type="checkbox"> Uploaders</label>
+                                            <label class="moveright"><input type="checkbox"> commenters</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group input-container">
+                                    <div class="col-sm-offset-2 col-sm-8">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    </form>
+
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Intro Section -->
+    <section id="intro" class="main-section">
+        <div class="container maindiv">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h2 class="grayfont">Rules</h2>
+                    <!--<p><strong>Usage Instructions:</strong> Make sure to include the <code>script.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>-->
+                    <!--<a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>-->
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <span>
+                                        <div class="floatleftrelative" style="padding-left: 7px;padding-top: 5px;">
+                                            <p><strong style="font-size: 20px;">#1 </strong>Send mail notification on deadline date</p>
+                                        </div>
+
+                                    </span>
+                                    <span>
+                                        <div class="blackline floatleftrelative"></div>
+                                    </span>
+                                    <span>
+                                        <br><br><br>
+                                        <div class="row card-content">
+                                            <div class="col-lg-8 col-md-9 col-sm-8 col-xs-8 floatleftrelative">
+                                                <span class="floatleftrelative">Fields: <strong>TASK DEADLINE</strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">When:</span>
+                                                <br>
+                                                <span class="floatleftrelative"><strong>DATE >= DeadlineDate-1</strong></span>
+                                            </div>
+                                            <div class="floatleftrelative col-md-1 col-sm-1 col-xs-1 col-lg-1">
+                                                <div class="verticalline"></div>
+                                            </div>
+                                            <div class="container col-lg-1 col-md-1 col-sm-2 col-xs-2 floatleftrelative">
+                                                <span class="floatleftrelative" style="color:gray;"><Strong><u>Recipients</u></Strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">requester</span> <br>
+                                                <span class="floatleftrelative">followers</span> <br>
+                                                <span class="floatleftrelative">uploaders</span> <br>
+
+                                            </div>
+                                        </div>
+
+                                    </span>
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="floatleftrelative">
+                                        <span class="whitefont floatleftrelative" style="padding-left: 10px;"><strong >Run: Daily</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-body">
+                                    <span>
+                                        <div class="floatleftrelative" style="padding-left: 7px;padding-top: 5px;">
+                                            <p><strong style="font-size: 20px;">#2 </strong>Send mail notification before deadline date</p>
+                                        </div>
+
+                                    </span>
+                                    <span>
+                                        <div class="blackline floatleftrelative"></div>
+                                    </span>
+                                    <span>
+                                        <br><br><br>
+                                        <div class="row card-content">
+                                            <div class="col-lg-8 col-md-9 col-sm-8 col-xs-8 floatleftrelative">
+                                                <span class="floatleftrelative">Fields: <strong>TASK DEADLINE</strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">When:</span>
+                                                <br>
+                                                <span class="floatleftrelative"><strong>DATE >= DeadlineDate-1</strong></span>
+                                            </div>
+                                            <div class="floatleftrelative col-md-1 col-sm-1 col-lg-1 col-xs-1">
+                                                <div class="verticalline"></div>
+                                            </div>
+                                            <div class="container col-lg-1 col-md-1 col-sm-2 col-xs-2 floatleftrelative">
+                                                <span class="floatleftrelative" style="color:gray;"><Strong><u>Recipients</u></Strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">requester</span> <br>
+                                                <span class="floatleftrelative">followers</span> <br>
+                                                <span class="floatleftrelative">uploaders</span> <br>
+
+                                            </div>
+                                        </div>
+
+                                    </span>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="floatleftrelative">
+                                    <span class="whitefont floatleftrelative" style="padding-left: 10px;"><strong >Run: Weekly</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-body">
+                                    <span>
+                                        <div class="floatleftrelative" style="padding-left: 7px;padding-top: 5px;">
+                                            <p><strong style="font-size: 20px;">#3 </strong>Send mail notification after deadline date</p>
+                                        </div>
+
+                                    </span>
+                                    <span>
+                                        <div class="blackline floatleftrelative"></div>
+                                    </span>
+                                    <span>
+                                        <br><br><br>
+                                        <div class="row card-content">
+                                            <div class="col-lg-8 col-md-9 col-sm-8 col-xs-8 floatleftrelative">
+                                                <span class="floatleftrelative">Fields: <strong>TASK DEADLINE</strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">When:</span>
+                                                <br>
+                                                <span class="floatleftrelative"><strong>DATE >= DeadlineDate-1</strong></span>
+                                            </div>
+                                            <div class="floatleftrelative col-md-1 col-sm-1 col-lg-1 col-xs-1">
+                                                <div class="verticalline"></div>
+                                            </div>
+                                            <div class="container col-lg-1 col-md-1 col-sm-2 col-xs-2 floatleftrelative">
+                                                <span class="floatleftrelative" style="color:gray;"><Strong><u>Recipients</u></Strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">requester</span> <br>
+                                                <span class="floatleftrelative">followers</span> <br>
+                                                <span class="floatleftrelative">uploaders</span> <br>
+
+                                            </div>
+                                        </div>
+
+                                    </span>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="floatleftrelative">
+                                    <span class="whitefont floatleftrelative" style="padding-left: 10px;"><strong >Run: Hourly</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="card-body">
+                                    <span>
+                                        <div class="floatleftrelative" style="padding-left: 7px;padding-top: 5px;">
+                                            <p><strong style="font-size: 20px;">#4 </strong>Send mail notification on comment</p>
+                                        </div>
+
+                                    </span>
+                                    <span>
+                                        <div class="blackline floatleftrelative"></div>
+                                    </span>
+                                    <span>
+                                        <br><br><br>
+                                        <div class="row card-content">
+                                            <div class="col-lg-8 col-md-9 col-sm-8 col-xs-8 floatleftrelative">
+                                                <span class="floatleftrelative">Fields: <strong>TASK DEADLINE</strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">When:</span>
+                                                <br>
+                                                <span class="floatleftrelative"><strong>on comment</strong></span>
+                                            </div>
+                                            <div class="floatleftrelative col-md-1 col-sm-1 col-lg-1 col-xs-1">
+                                                <div class="verticalline"></div>
+                                            </div>
+                                            <div class="container col-lg-1 col-md-1 col-sm-2 col-xs-2 floatleftrelative">
+                                                <span class="floatleftrelative" style="color:gray;"><Strong><u>Recipients</u></Strong></span>
+                                                <br>
+                                                <span class="floatleftrelative">requester</span> <br>
+                                                <span class="floatleftrelative">followers</span> <br>
+                                                <span class="floatleftrelative">uploaders</span> <br>
+
+                                            </div>
+                                        </div>
+
+                                    </span>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="floatleftrelative">
+                                    <span class="whitefont floatleftrelative" style="padding-left: 10px;"><strong >Run: Daily</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div style="height: 20px;">
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div>
+
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>
